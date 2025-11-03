@@ -1,0 +1,134 @@
+.lucky-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.card-wrapper {
+  position: relative;
+  width: 16rem;
+  height: 16rem;
+  perspective: 1000px;
+  cursor: default;
+  border-radius: 1rem;
+}
+
+.card-wrapper.clickable {
+  cursor: pointer;
+}
+
+.card-wrapper:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--color-sky);
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s;
+  transform-style: preserve-3d;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  backface-visibility: hidden;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.card-front {
+  background-color: var(--color-sky);
+  color: white;
+  border: 6px solid var(--color-olive);
+  transition: transform 0.2s;
+}
+
+.card-wrapper.clickable:hover .card-front {
+  transform: scale(1.05);
+}
+
+.card-back {
+  background-color: var(--color-yellow);
+  color: var(--color-dark);
+  border: 6px solid var(--color-teal);
+  transform: rotateY(180deg);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.reset-button {
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  background-color: var(--color-olive);
+  color: var(--color-dark);
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  cursor: pointer;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s;
+}
+
+.reset-button:hover {
+  background-color: var(--color-teal);
+  transform: scale(1.05);
+}
+
+.reset-button:active {
+  transform: scale(0.95);
+}
+
+.reset-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--color-teal);
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .card-wrapper {
+    width: 20rem;
+    height: 20rem;
+  }
+
+  .card-face {
+    font-size: 1.875rem;
+  }
+
+  .card-back {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-wrapper {
+    width: 24rem;
+    height: 24rem;
+  }
+
+  .card-face {
+    font-size: 2.25rem;
+  }
+
+  .card-back {
+    font-size: 1.75rem;
+  }
+}
