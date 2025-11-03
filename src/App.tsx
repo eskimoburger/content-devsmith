@@ -11,6 +11,15 @@ const prizes = [
 export default function App() {
   return (
     <main className="app-container">
+      <a
+        href="https://eskimoburger.github.io/content-devsmith-refine/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="version-button"
+      >
+        version แก้มือ
+      </a>
+
       <h1 className="app-title">🎉 Devsmith Lucky Draw 🎉</h1>
 
       <LuckyCard prizes={prizes} />
